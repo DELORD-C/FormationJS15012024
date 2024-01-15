@@ -1,0 +1,60 @@
+body {
+    background-color: rgb(31, 31, 31);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    padding: 20px;
+    margin: 0;
+    gap: 20px;
+    padding-top: calc(50vh - 50px);
+}
+
+button {
+    border: 1px solid #fff;
+    background: none;
+    padding: 10px 30px;
+    transition: 0.5s;
+    position: relative;
+    color: #fff;
+    cursor: pointer;
+    width: 150px;
+    margin: auto;
+}
+
+button, button:focus, button:hover, button:active {
+    outline: none;
+}
+
+.fill {
+    border-color: orangered;
+    color: orangered;
+}
+
+.raise {
+    border-color: red;
+    color: red;
+}
+
+.fillin {
+    border-color: rgb(255, 0, 115);
+    color: rgb(255, 0, 115);
+}
+
+.pulse {
+    border-color: rgb(140, 0, 255);
+    color: rgb(140, 0, 255);
+}
+
+.close {
+    border-color: rgb(53, 46, 255);
+    color: rgb(53, 46, 255);
+}
+
+.radius {
+    border-color: rgb(0, 179, 255);
+    color: rgb(0, 179, 255);
+}
+
+.grow {
+    border-color: rgb(0, 255, 149);
+    color: rgb(0, 255, 149);
+}

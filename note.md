@@ -208,3 +208,7 @@ document.addEventListener('keydown', (event) => {
 |focus|Se lance lorsque l'utilisateur met le focus sur l'élément|
 |keydown|Se lance lorsque on appuie sur une touche|
 |scroll|🐱‍🏍|
+
+### NB : on peut apl les fonction JS direct dans HTML avec les propriétés "on..." 
+* On gagne en visibilité dans js) 
+* pas besoin de getelement etc ni eventlistener dans js 
