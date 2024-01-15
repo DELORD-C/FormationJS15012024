@@ -208,6 +208,7 @@ document.addEventListener('keydown', (event) => {
 |focus|Se lance lorsque l'utilisateur met le focus sur l'élément|
 |keydown|Se lance lorsque on appuie sur une touche|
 |scroll|🐱‍🏍|
+|submit|Se déclenche lors de la soumission d'un formulaire|
 
 ### NB : on peut apl les fonction JS direct dans HTML avec les propriétés "on..." 
 * On gagne en visibilité dans js) 

@@ -58,3 +58,8 @@ button, button:focus, button:hover, button:active {
     border-color: rgb(0, 255, 149);
     color: rgb(0, 255, 149);
 }
+
+.filled {
+    box-shadow: 160px 0 0 0 orangered inset;
+    color: black;
+}
