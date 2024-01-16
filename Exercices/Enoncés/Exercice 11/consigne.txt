@@ -1,0 +1,12 @@
+Dans index.html :
+
+    Ajouter un champ téléphone dans le html
+
+
+Trouver une regex (expression régulière) permettant de valider un numéro de téléphone
+
+
+Dans verif.js :
+
+    Ajouter un nouveau test pour vérifier le champ téléphone avec la regex précédemment
+    trouvée avant envoi du formulaire

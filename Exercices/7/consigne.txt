@@ -1,0 +1,8 @@
+Dans index.html :
+
+    Créer un élément <button> et un élément <img src='blue.jpg'>
+
+
+Dans script.js :
+
+    Grâce au code que vous aller écrire, lorsque l'on clique sur le bouton, l'image doit disparaitre.

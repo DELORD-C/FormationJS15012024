@@ -1,0 +1,11 @@
+Dans index.html :
+
+Créer un élément <p> dans le body et lui affecter un id
+(ex : <p id='id'>Test</p>)
+Créer un élément <button> dans le body et lui affecter un id
+(ex : <button id='btn'>Boutton</button>)
+
+Dans script.js
+
+Lorsque je clique sur le boutton, le texte (contenu) du 
+paragraphe doit changer.

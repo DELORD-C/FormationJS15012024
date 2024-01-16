@@ -1,0 +1,13 @@
+Dans index.html :
+
+Créer un élément <p> dans le body et lui affecter un id (ex : <p id='id'>Test</p>)
+Créer un élément <button> dans le body et lui affecter un id (ex : <button id='btn'>Boutton</button>)
+
+
+Dans script.js :
+
+    créez deux variables dans lesquelles vous stockerez respectivement votre élement <p>
+et votre élement <button>
+    créez un "eventListener" en ciblant votre <button> (ex : button.addeventlistener()...)
+    de sorte que lorsque l'on clique sur le boutton, un popup nous demande si on est sûre,
+    si on valide, l'élément <p> sera supprimé, sinon, aucune action ne sera entreprise.

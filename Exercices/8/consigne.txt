@@ -1,0 +1,5 @@
+Dans filtre.js :
+  Modifiez l'eventListener afin d'arriver au résultat suivant :
+  Quand on appuie sur la touche Entrer quand on est dans le champs input recherche,
+  seule l'image dont la balise Alt correspond au texte de la barre de recherche doit
+  rester affichée.

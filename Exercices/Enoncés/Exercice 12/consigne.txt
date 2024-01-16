@@ -1,0 +1,5 @@
+Dans api.js :
+
+    Il faut que lorsque l'on appuie sur le bouton, une liste de toutes
+les catégories apparaisse.
+    Pour cela remplacez les '?' aux lignes 1, 10 et 16
