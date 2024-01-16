@@ -213,3 +213,18 @@ document.addEventListener('keydown', (event) => {
 ### NB : on peut apl les fonction JS direct dans HTML avec les propriétés "on..." 
 * On gagne en visibilité dans js) 
 * pas besoin de getelement etc ni eventlistener dans js 
+
+
+
+
+
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+
+```js
+let beta = ["b", "a", "z", "e", "r", "t", "y", "u", 15, 45, 78, 12, "i", "o", "p"]
+
+beta[2]//= beta à l'index 2 donc "z"
+```
