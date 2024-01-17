@@ -20,7 +20,7 @@ button2.addEventListener('click', () => {
 
 //
 let texte = document.getElementsByTagName('p')[0];
-texte.addEventListener('mouseover', () => {
+texte.addEventListener('mouseover', function () {
     console.log('test');
     texte.innerHTML = 'Bonjour, bienvenue chez Dawan.';
 });

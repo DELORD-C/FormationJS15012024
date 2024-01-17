@@ -102,5 +102,15 @@ while (n < 10) {
 // !==
 
 function test () {
-    console.log('test');
+    return 'test';
 }
+
+let variable = test();
+
+
+
+function addition(a = 0, b = 10) {
+    return a + b;
+}
+
+let c = addition(50);

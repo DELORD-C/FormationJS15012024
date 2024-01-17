@@ -31,7 +31,7 @@ let tab3 = tab.slice(2, 4) // Créer une copie partielle d'un tableau
 
 tab.pop();//supprime le dernier élement du tableau 
 let pop = tab.pop();//récupère le dernier élement du tableau 
-
+    
 tab.shift()//supprime le premier élement du tableau (on peut aussi le récup si on le mets dans une variable)
 
 tab.reverse()//inverse le tableau

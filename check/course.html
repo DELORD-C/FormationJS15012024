@@ -1,0 +1,1405 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!--GENERAL-->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <!--manifest-->
+    <!--service worker-->
+    <!--favicon-->
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <!--noindex-->
+    <meta name="robots" content="noindex, nofollow" />
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <!-- tailwinds + alpine js-->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <!-- font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    <!-- ionicon -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+
+    <!--PARTICULIER : CSS + JS-->
+    <link rel="prefetch stylesheet" href="https://kit-pro.fontawesome.com/releases/v5.12.1/css/pro.min.css">
+    <link rel="stylesheet" href="course.css" />
+</head>
+
+<body>
+
+    <button id="del">del</button>
+    <br> <br>
+
+    <form class="newItem">
+        <div class="newItem__select">
+            <select class="filter rounded-sm p-1 ml-40 text-white bg-indigo-800 border-1 border-indigo-300">
+                <option value="all">Toute la liste</option>
+                <option value="undo">Manquant</option>
+                <option value="completed">Dans le panier</option>
+            </select>
+        </div>
+    </form>
+    <br> <br>
+    <div class="container">
+
+        <!-- UNE CATEGORIE -->
+        <div class="legume contenair">
+            <div class="todo__content">
+                <h1 class="text-xl font-bold text-green-700">FRUITS/LEGUMES</h1>
+                <form class="newItem">
+                    <div class="newItem__input">
+                        <input type="text" name="add" placeholder="Ajouter...">
+                        <i id="plus" class="fas fa-plus"></i>
+                    </div>
+                </form>
+                <ul class="todo__list">
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="poivron" value="yes" id="poivron"
+                            onchange="handleCheck('poivron')">
+                        <label for="poivron">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Poivrons</span>
+                        </label>
+                    </li>
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="oignon" value="yes" id="oignon"
+                            onchange="handleCheck('oignon')">
+                        <label for="oignon">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Oignons</span>
+                        </label>
+                    </li>
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="ail" value="yes" id="ail" onchange="handleCheck('ail')">
+                        <label for="ail">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Ail</span>
+                        </label>
+    
+                    </li>
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="courgette" value="yes" id="courgette"
+                            onchange="handleCheck('courgette')">
+                        <label for="courgette">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Courgettes</span>
+                        </label>
+    
+                    </li>
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="celeri" value="yes" id="celeri"
+                            onchange="handleCheck('celeri')">
+                        <label for="celeri">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Celeris</span>
+                        </label>
+    
+                    </li>
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="persil" value="yes" id="persil"
+                            onchange="handleCheck('persil')">
+                        <label for="persil">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Persil feuille</span>
+                        </label>
+    
+                    </li>
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="banane" value="yes" id="banane"
+                            onchange="handleCheck('banane')">
+                        <label for="banane">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Bananes</span>
+                        </label>
+    
+                    </li>
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="carrote" value="yes" id="carrote"
+                            onchange="handleCheck('carrote')">
+                        <label for="carrote">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Carrotes</span>
+                        </label>
+    
+                    </li>
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="champi" value="yes" id="champi"
+                            onchange="handleCheck('champi')">
+                        <label for="champi">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Champignons frais</span>
+                        </label>
+    
+                    </li>
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="salade" value="yes" id="salade"
+                            onchange="handleCheck('salade')">
+                        <label for="salade">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Salade</span>
+                        </label>
+    
+                    </li>
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="batata" value="yes" id="batata"
+                            onchange="handleCheck('batata')">
+                        <label for="batata">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Batata</span>
+                        </label>
+    
+                    </li>
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="aubergine" value="yes" id="aubergine"
+                            onchange="handleCheck('aubergine')">
+                        <label for="aubergine">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Aubergines</span>
+                        </label>
+    
+                    </li>
+                    <!-- -->
+                </ul>
+            </div>
+        </div>
+        <!-- UNE CATEGORIE -->
+    
+        <br> <br>
+    
+        <!-- UNE CATEGORIE -->
+        <div class="menager contenair">
+            <div class="todo__content">
+                <h1 class="text-xl font-bold text-orange-700">MENAGER</h1>
+                <form class="newItem">
+                    <div class="newItem__input">
+                        <input type="text" name="add" placeholder="Ajouter...">
+                        <i id="plus" class="fas fa-plus"></i>
+                    </div>
+                </form>
+                <ul class="todo__list">
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="Pchit pour la table" value="yes" id="Pchit pour la table"
+                            onchange="handleCheck('Pchit pour la table')">
+                        <label for="Pchit pour la table">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Pchit pour la table</span>
+                        </label>
+                    </li>
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="Éponge" value="yes" id="Éponge"
+                            onchange="handleCheck('Éponge')">
+                        <label for="Éponge">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Éponge</span>
+                        </label>
+                    </li>
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="Pchit miroir" value="yes" id="Pchit miroir"
+                            onchange="handleCheck('Pchit miroir')">
+                        <label for="Pchit miroir">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Pchit miroir</span>
+                        </label>
+    
+                    </li>
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="Gant ménage" value="yes" id="Gant ménage"
+                            onchange="handleCheck('Gant ménage')">
+                        <label for="Gant ménage">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Gant ménage</span>
+                        </label>
+    
+                    </li>
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="Liquide vaisselle" value="yes" id="Liquide vaisselle"
+                            onchange="handleCheck('Liquide vaisselle')">
+                        <label for="Liquide vaisselle">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Liquide vaisselle</span>
+                        </label>
+    
+                    </li>
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="Sac poubelle" value="yes" id="Sac poubelle"
+                            onchange="handleCheck('Sac poubelle')">
+                        <label for="Sac poubelle">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Sac poubelle</span>
+                        </label>
+    
+                    </li>
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="Tablette lave-vaisselle" value="yes"
+                            id="Tablette lave-vaisselle" onchange="handleCheck('Tablette lave-vaisselle')">
+                        <label for="Tablette lave-vaisselle">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Tablette lave-vaisselle</span>
+                        </label>
+    
+                    </li>
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="Lessive" value="yes" id="Lessive"
+                            onchange="handleCheck('Lessive')">
+                        <label for="Lessive">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Lessive</span>
+                        </label>
+    
+                    </li>
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="Adoucissant" value="yes" id="Adoucissant"
+                            onchange="handleCheck('Adoucissant')">
+                        <label for="Adoucissant">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Adoucissant</span>
+                        </label>
+    
+                    </li>
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="Sachet congélation" value="yes" id="Sachet congélation"
+                            onchange="handleCheck('Sachet congélation')">
+                        <label for="Sachet congélation">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Sachet congélation</span>
+                        </label>
+    
+                    </li>
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="Papier cuisson" value="yes" id="Papier cuisson"
+                            onchange="handleCheck('Papier cuisson')">
+                        <label for="Papier cuisson">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Papier cuisson</span>
+                        </label>
+                    </li>
+                    <!-- -->
+                </ul>
+            </div>
+        </div>
+        <!-- UNE CATEGORIE -->
+    
+        <br> <br>
+    
+        <!-- UNE CATEGORIE -->
+        <div class="hygiene contenair">
+            <div class="todo__content">
+                <h1 class="text-xl font-bold text-sky-700">HYGIENE</h1>
+                <form class="newItem">
+                    <div class="newItem__input">
+                        <input type="text" name="add" placeholder="Ajouter...">
+                        <i id="plus" class="fas fa-plus"></i>
+                    </div>
+                </form>
+                <ul class="todo__list">
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="Dentifrice" value="yes" id="Dentifrice"
+                            onchange="handleCheck('Dentifrice')">
+                        <label for="Dentifrice">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Dentifrice</span>
+                        </label>
+                    </li>
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="Coton tige" value="yes" id="Coton tige"
+                            onchange="handleCheck('Coton tige')">
+                        <label for="Coton tige">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Coton tige</span>
+                        </label>
+                    </li>
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="Gel douche" value="yes" id="Gel douche"
+                            onchange="handleCheck('Gel douche')">
+                        <label for="Gel douche">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Gel douche</span>
+                        </label>
+    
+                    </li>
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="Mouchoirs" value="yes" id="Mouchoirs"
+                            onchange="handleCheck('Mouchoirs')">
+                        <label for="Mouchoirs">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Mouchoirs</span>
+                        </label>
+    
+                    </li>
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="Serviette + protej" value="yes" id="Serviette + protej"
+                            onchange="handleCheck('Serviette + protej')">
+                        <label for="Serviette + protej">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Serviette + protej</span>
+                        </label>
+    
+                    </li>
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="Sac poubelle" value="yes" id="Sac poubelle"
+                            onchange="handleCheck('Sac poubelle')">
+                        <label for="Sac poubelle">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Sac poubelle</span>
+                        </label>
+    
+                    </li>
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="Papier toilette" value="yes" id="Papier toilette"
+                            onchange="handleCheck('Papier toilette')">
+                        <label for="Papier toilette">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Papier toilette</span>
+                        </label>
+    
+                    </li>
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="Deo" value="yes" id="Deo" onchange="handleCheck('Deo')">
+                        <label for="Deo">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Deo</span>
+                        </label>
+    
+                    </li>
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="Recharge nettoyant main ou savonette" value="yes"
+                            id="Recharge nettoyant main ou savonette"
+                            onchange="handleCheck('Recharge nettoyant main ou savonette')">
+                        <label for="Recharge nettoyant main ou savonette">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Recharge nettoyant main ou savonette</span>
+                        </label>
+    
+                    </li>
+                    <!-- -->
+                </ul>
+            </div>
+        </div>
+        <!-- UNE CATEGORIE -->
+    
+        <br> <br>
+    
+        <!-- UNE CATEGORIE -->
+        <div class="patisserie contenair">
+            <div class="todo__content">
+                <h1 class="text-xl font-bold text-pink-700">PÂTISSERIE</h1>
+                <form class="newItem">
+                    <div class="newItem__input">
+                        <input type="text" name="add" placeholder="Ajouter...">
+                        <i id="plus" class="fas fa-plus"></i>
+                    </div>
+                </form>
+                <ul class="todo__list">
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="Tablette choco noir" value="yes" id="Tablette choco noir"
+                            onchange="handleCheck('Tablette choco noir')">
+                        <label for="Tablette choco noir">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Tablette choco noir</span>
+                        </label>
+                    </li>
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="Tablette choco blanc" value="yes"
+                            id="Tablette choco blanc" onchange="handleCheck('Tablette choco blanc')">
+                        <label for="Tablette choco blanc">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Tablette choco blanc</span>
+                        </label>
+                    </li>
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="Maïzena" value="yes" id="Maïzena"
+                            onchange="handleCheck('Maïzena')">
+                        <label for="Maïzena">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Maïzena</span>
+                        </label>
+    
+                    </li>
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="Levure" value="yes" id="Levure"
+                            onchange="handleCheck('Levure')">
+                        <label for="Levure">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Levure</span>
+                        </label>
+    
+                    </li>
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="Sucre vanillé" value="yes" id="Sucre vanillé"
+                            onchange="handleCheck('Sucre vanillé')">
+                        <label for="Sucre vanillé">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Sucre vanillé</span>
+                        </label>
+    
+                    </li>
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="Farine" value="yes" id="Farine"
+                            onchange="handleCheck('Farine')">
+                        <label for="Farine">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Farine</span>
+                        </label>
+    
+                    </li>
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="Sucre" value="yes" id="Sucre"
+                            onchange="handleCheck('Sucre')">
+                        <label for="Sucre">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Sucre</span>
+                        </label>
+    
+                    </li>
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="Cacao Van houten" value="yes" id="Cacao Van houten"
+                            onchange="handleCheck('Cacao Van houten')">
+                        <label for="Cacao Van houten">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Cacao Van houten</span>
+                        </label>
+    
+                    </li>
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="Cassonade" value="yes" id="Cassonade"
+                            onchange="handleCheck('Cassonade')">
+                        <label for="Cassonade">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Cassonade</span>
+                        </label>
+                    </li>
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="Levure boulangère" value="yes" id="Levure boulangère"
+                            onchange="handleCheck('Levure boulangère')">
+                        <label for="Levure boulangère">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Levure boulangère</span>
+                        </label>
+                    </li>
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="Noisette" value="yes" id="Noisette"
+                            onchange="handleCheck('Noisette')">
+                        <label for="Noisette">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Noisette</span>
+                        </label>
+                    </li>
+                    <!-- -->
+    
+                </ul>
+            </div>
+        </div>
+        <!-- UNE CATEGORIE -->
+    
+        <br> <br>
+        <!-- UNE CATEGORIE -->
+        <div class="frais contenair">
+            <div class="todo__content">
+                <h1 class="text-xl font-bold text-sky-900">PRODUITS FRAIS/SURGELÉ</h1>
+                <form class="newItem">
+                    <div class="newItem__input">
+                        <input type="text" name="add" placeholder="Ajouter...">
+                        <i id="plus" class="fas fa-plus"></i>
+                    </div>
+                </form>
+                <ul class="todo__list">
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="Beurre salé" value="yes" id="Beurre salé"
+                            onchange="handleCheck('Beurre salé')">
+                        <label for="Beurre salé">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Beurre salé</span>
+                        </label>
+                    </li>
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="Beurre mémé" value="yes" id="Beurre mémé"
+                            onchange="handleCheck('Beurre mémé')">
+                        <label for="Beurre mémé">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Beurre mémé</span>
+                        </label>
+                    </li>
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="Fromage blanc" value="yes" id="Fromage blanc"
+                            onchange="handleCheck('Fromage blanc')">
+                        <label for="Fromage blanc">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Fromage blanc</span>
+                        </label>
+    
+                    </li>
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="St moret" value="yes" id="St moret"
+                            onchange="handleCheck('St moret')">
+                        <label for="St moret">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">St moret</span>
+                        </label>
+    
+                    </li>
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="Mozarella" value="yes" id="Mozarella"
+                            onchange="handleCheck('Mozarella')">
+                        <label for="Mozarella">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Mozarella</span>
+                        </label>
+    
+                    </li>
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="Mascarone" value="yes" id="Mascarone"
+                            onchange="handleCheck('Mascarone')">
+                        <label for="Mascarone">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Mascarone</span>
+                        </label>
+    
+                    </li>
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="Fromage rapé" value="yes" id="Fromage rapé"
+                            onchange="handleCheck('Fromage rapé')">
+                        <label for="Fromage rapé">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Fromage rapé</span>
+                        </label>
+    
+                    </li>
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="Buche de chevre" value="yes" id="Buche de chevre"
+                            onchange="handleCheck('Buche de chevre')">
+                        <label for="Buche de chevre">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Buche de chevre</span>
+                        </label>
+    
+                    </li>
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="Creme liquide" value="yes" id="Creme liquide"
+                            onchange="handleCheck('Creme liquide')">
+                        <label for="Creme liquide">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Creme liquide</span>
+                        </label>
+                    </li>
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="Salade iceberg" value="yes" id="Salade iceberg"
+                            onchange="handleCheck('Salade iceberg')">
+                        <label for="Salade iceberg">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Salade iceberg</span>
+                        </label>
+                    </li>
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="Pâte tarte Marie" value="yes" id="Pâte tarte Marie"
+                            onchange="handleCheck('Pâte tarte Marie')">
+                        <label for="Pâte tarte Marie">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Pâte tarte Marie</span>
+                        </label>
+                    </li>
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="Feuille de brick" value="yes" id="Feuille de brick"
+                            onchange="handleCheck('Feuille de brick')">
+                        <label for="Feuille de brick">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Feuille de brick</span>
+                        </label>
+    
+                    </li>
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="Saumon fumé" value="yes" id="Saumon fumé"
+                            onchange="handleCheck('Saumon fumé')">
+                        <label for="Saumon fumé">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Saumon fumé</span>
+                        </label>
+    
+                    </li>
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="Lait" value="yes" id="Lait"
+                            onchange="handleCheck('Lait')">
+                        <label for="Lait">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Lait</span>
+                        </label>
+    
+                    </li>
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="Lben" value="yes" id="Lben"
+                            onchange="handleCheck('Lben')">
+                        <label for="Lben">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Lben</span>
+                        </label>
+    
+                    </li>
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="Oeufs" value="yes" id="Oeufs"
+                            onchange="handleCheck('Oeufs')">
+                        <label for="Oeufs">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Oeufs</span>
+                        </label>
+                    </li>
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="Crevettes surgeles" value="yes" id="Crevettes surgeles"
+                            onchange="handleCheck('Crevettes surgeles')">
+                        <label for="Crevettes surgeles">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Crevettes surgeles</span>
+                        </label>
+                    </li>
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="Gnocchi" value="yes" id="Gnocchi"
+                            onchange="handleCheck('Gnocchi')">
+                        <label for="Gnocchi">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Gnocchi</span>
+                        </label>
+                    </li>
+                    <!-- -->
+    
+                </ul>
+            </div>
+        </div>
+        <!-- UNE CATEGORIE -->
+    
+        <br> <br>
+    
+        <!-- UNE CATEGORIE -->
+        <div class="dej contenair">
+            <div class="todo__content">
+                <h1 class="text-xl font-bold text-orange-700">PETIT DEJ</h1>
+                <form class="newItem">
+                    <div class="newItem__input">
+                        <input type="text" name="add" placeholder="Ajouter...">
+                        <i id="plus" class="fas fa-plus"></i>
+                    </div>
+                </form>
+                <ul class="todo__list">
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="Cafe" value="yes" id="Cafe"
+                            onchange="handleCheck('Cafe')">
+                        <label for="Cafe">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Café</span>
+                        </label>
+                    </li>
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="Capuccino vanille" value="yes" id="Capuccino vanille"
+                            onchange="handleCheck('Capuccino vanille')">
+                        <label for="Capuccino vanille">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Capuccino vanille</span>
+                        </label>
+                    </li>
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="Cacao nesquick" value="yes" id="Cacao nesquick"
+                            onchange="handleCheck('Cacao nesquick')">
+                        <label for="Cacao nesquick">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Cacao nesquick</span>
+                        </label>
+    
+                    </li>
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="Céréales" value="yes" id="Céréales"
+                            onchange="handleCheck('Céréales')">
+                        <label for="Céréales">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Céréales</span>
+                        </label>
+    
+                    </li>
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="Flocons d’avoine" value="yes" id="Flocons d’avoine"
+                            onchange="handleCheck('Flocons d’avoine')">
+                        <label for="Flocons d’avoine">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Flocons d’avoine</span>
+                        </label>
+    
+                    </li>
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="Confiture" value="yes" id="Confiture"
+                            onchange="handleCheck('Confiture')">
+                        <label for="Confiture">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Confiture</span>
+                        </label>
+    
+                    </li>
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="Biscotte" value="yes" id="Biscotte"
+                            onchange="handleCheck('Biscotte')">
+                        <label for="Biscotte">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Biscotte</span>
+                        </label>
+    
+                    </li>
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="Cookies dur" value="yes" id="Cookies dur"
+                            onchange="handleCheck('Cookies dur')">
+                        <label for="Cookies dur">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Cookies dur</span>
+                        </label>
+    
+                    </li>
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="Compote" value="yes" id="Compote"
+                            onchange="handleCheck('Compote')">
+                        <label for="Compote">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Compote</span>
+                        </label>
+                    </li>
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="Jus de fruit" value="yes" id="Jus de fruit"
+                            onchange="handleCheck('Jus de fruit')">
+                        <label for="Jus de fruit">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Jus de fruit</span>
+                        </label>
+                    </li>
+                    <!-- -->
+    
+                </ul>
+            </div>
+        </div>
+        <!-- UNE CATEGORIE -->
+    
+        <br> <br>
+    
+        <!-- UNE CATEGORIE -->
+        <div class="sec contenair">
+            <div class="todo__content">
+                <h1 class="text-xl font-bold text-purple-700">SECS / CONSERVES</h1>
+                <form class="newItem">
+                    <div class="newItem__input">
+                        <input type="text" name="add" placeholder="Ajouter...">
+                        <i id="plus" class="fas fa-plus"></i>
+                    </div>
+                </form>
+                <ul class="todo__list">
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="Riz basmati" value="yes" id="Riz basmati"
+                            onchange="handleCheck('Riz basmati')">
+                        <label for="Riz basmati">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Riz basmati</span>
+                        </label>
+                    </li>
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="Penne" value="yes" id="Penne"
+                            onchange="handleCheck('Penne')">
+                        <label for="Penne">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Penne</span>
+                        </label>
+                    </li>
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="Tagliatelle" value="yes" id="Tagliatelle"
+                            onchange="handleCheck('Tagliatelle')">
+                        <label for="Tagliatelle">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Tagliatelle</span>
+                        </label>
+    
+                    </li>
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="Boulgour" value="yes" id="Boulgour"
+                            onchange="handleCheck('Boulgour')">
+                        <label for="Boulgour">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Boulgour</span>
+                        </label>
+    
+                    </li>
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="Lentilles" value="yes" id="Lentilles"
+                            onchange="handleCheck('Lentilles')">
+                        <label for="Lentilles">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Lentilles</span>
+                        </label>
+    
+                    </li>
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="Lasagnes" value="yes" id="Lasagnes"
+                            onchange="handleCheck('Lasagnes')">
+                        <label for="Lasagnes">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Lasagnes</span>
+                        </label>
+    
+                    </li>
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="Vermicelle" value="yes" id="Vermicelle"
+                            onchange="handleCheck('Vermicelle')">
+                        <label for="Vermicelle">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Vermicelle</span>
+                        </label>
+    
+                    </li>
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="Langue d’oiseau" value="yes" id="Langue d’oiseau"
+                            onchange="handleCheck('Langue d’oiseau')">
+                        <label for="Langue d’oiseau">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Langue d’oiseau</span>
+                        </label>
+    
+                    </li>
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="Semoule fine" value="yes" id="Semoule fine"
+                            onchange="handleCheck('Semoule fine')">
+                        <label for="Semoule fine">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Semoule fine</span>
+                        </label>
+    
+                    </li>
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="Pois chiche" value="yes" id="Pois chiche"
+                            onchange="handleCheck('Pois chiche')">
+                        <label for="Pois chiche">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Pois chiche</span>
+                        </label>
+    
+                    </li>
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="Lentilles" value="yes" id="Lentilles"
+                            onchange="handleCheck('Lentilles')">
+                        <label for="Lentilles">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Lentilles</span>
+                        </label>
+                    </li>
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="Thon" value="yes" id="Thon"
+                            onchange="handleCheck('Thon')">
+                        <label for="Thon">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Thon</span>
+                        </label>
+                    </li>
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="Purée" value="yes" id="Purée"
+                            onchange="handleCheck('Purée')">
+                        <label for="Purée">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Purée</span>
+                        </label>
+                    </li>
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="Nouille de riz pad thai" value="yes"
+                            id="Nouille de riz pad thai" onchange="handleCheck('Nouille de riz pad thai')">
+                        <label for="Nouille de riz pad thai">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Nouille de riz pad thai</span>
+                        </label>
+                    </li>
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="Riz jap" value="yes" id="Riz jap"
+                            onchange="handleCheck('Riz jap')">
+                        <label for="Riz jap">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Riz jap</span>
+                        </label>
+                    </li>
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="Pousse de soja" value="yes" id="Pousse de soja"
+                            onchange="handleCheck('Pousse de soja')">
+                        <label for="Pousse de soja">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Pousse de soja</span>
+                        </label>
+                    </li>
+                    <!-- -->
+    
+                </ul>
+            </div>
+        </div>
+        <!-- UNE CATEGORIE -->
+        <br> <br>
+    
+        <!-- UNE CATEGORIE -->
+        <div class="condiment contenair">
+            <div class="todo__content">
+                <h1 class="text-xl font-bold text-amber-900">CONDIMENTS</h1>
+                <form class="newItem">
+                    <div class="newItem__input">
+                        <input type="text" name="add" placeholder="Ajouter...">
+                        <i id="plus" class="fas fa-plus"></i>
+                    </div>
+                </form>
+                <ul class="todo__list">
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="Huile tournesol" value="yes" id="Huile tournesol"
+                            onchange="handleCheck('Huile tournesol')">
+                        <label for="Huile tournesol">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Huile tournesol</span>
+                        </label>
+                    </li>
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="Moutarde" value="yes" id="Moutarde"
+                            onchange="handleCheck('Moutarde')">
+                        <label for="Moutarde">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Moutarde</span>
+                        </label>
+                    </li>
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="Oigons grillé" value="yes" id="Oigons grillé"
+                            onchange="handleCheck('Oigons grillé')">
+                        <label for="Oigons grillé">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Oigons grillé</span>
+                        </label>
+                    </li>
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="Cacahuettes" value="yes" id="Cacahuettes"
+                            onchange="handleCheck('Cacahuettes')">
+                        <label for="Cacahuettes">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Cacahuettes grillées non salées</span>
+                        </label>
+    
+                    </li>
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="Olives" value="yes" id="Olives"
+                            onchange="handleCheck('Olives')">
+                        <label for="Olives">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Olives</span>
+                        </label>
+    
+                    </li>
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="Coulis tomates" value="yes" id="Coulis tomates"
+                            onchange="handleCheck('Coulis tomates')">
+                        <label for="Coulis tomates">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Coulis tomates</span>
+                        </label>
+                    </li>
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="Concentré tomates" value="yes" id="Concentré tomates"
+                            onchange="handleCheck('Concentré tomates')">
+                        <label for="Concentré tomates">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Concentré tomates</span>
+                        </label>
+                    </li>
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="Sauce tomate" value="yes" id="Sauce tomate"
+                            onchange="handleCheck('Sauce tomate')">
+                        <label for="Sauce tomate">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Sauce tomate</span>
+                        </label>
+                    </li>
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="soja" value="yes" id="soja"
+                            onchange="handleCheck('soja')">
+                        <label for="soja">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Sauce soja sucré sans alcool</span>
+                        </label>
+                    </li>
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="coco" value="yes" id="coco"
+                            onchange="handleCheck('coco')">
+                        <label for="coco">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Creme coco</span>
+                        </label>
+                    </li>
+                    <!-- -->
+    
+                </ul>
+            </div>
+        </div>
+        <!-- UNE CATEGORIE -->
+        <br> <br>
+    
+        <!-- UNE CATEGORIE -->
+        <div class="boucherie contenairviande">
+            <div class="todo__content">
+                <h1 class="text-xl font-bold text-pink-700">BOUCHERIE</h1>
+                <form class="newItem">
+                    <div class="newItem__input">
+                        <input type="text" name="add" placeholder="Ajouter...">
+                        <i id="plus" class="fas fa-plus"></i>
+                    </div>
+                </form>
+                <ul class="todo__list">
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="haché" value="yes" id="haché"
+                            onchange="handleCheck('haché')">
+                        <label for="haché">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Viande haché</span>
+                        </label>
+                    </li>
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="poulet" value="yes" id="poulet"
+                            onchange="handleCheck('poulet')">
+                        <label for="poulet">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Cuisse poulet</span>
+                        </label>
+                    </li>
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="Agneau" value="yes" id="Agneau"
+                            onchange="handleCheck('Agneau')">
+                        <label for="Agneau">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Agneau</span>
+                        </label>
+    
+                    </li>
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="Veau" value="yes" id="Veau"
+                            onchange="handleCheck('Veau')">
+                        <label for="Veau">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Veau</span>
+                        </label>
+    
+                    </li>
+                    <!-- UN PRODUIT -->
+                    <li class="todo__item">
+                        <input type="checkbox" class="save" name="Escalope" value="yes" id="Escalope"
+                            onchange="handleCheck('Escalope')">
+                        <label for="Escalope">
+                            <span class="check__box">
+                                <i class="far fa-check check__pointer"></i>
+                            </span>
+                            <span class="item__title">Escalope de dinde</span>
+                        </label>
+                    </li>
+                    <!-- -->
+                </ul>
+            </div>
+        </div>
+        <!-- UNE CATEGORIE -->
+    </div>
+
+    <br> <br>
+
+    <script src="course.js"></script>
+</body>
+
+</html>

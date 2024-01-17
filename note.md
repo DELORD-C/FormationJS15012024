@@ -228,3 +228,79 @@ let beta = ["b", "a", "z", "e", "r", "t", "y", "u", 15, 45, 78, 12, "i", "o", "p
 
 beta[2]//= beta à l'index 2 donc "z"
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Versions et standard ECMAScript = norme de langage de JS
+
+Les intructions de bloc : créer des blocs et les nommer (inutile)
+
+Les structures de contrôle conditionnelles : if et switch, else, elseif
+
+Les structures de contrôle itératives : for, foreach, while
+
+Retourner une valeur "return": pour que la fonction renvoie un résultat 
+
+Définir des paramètres par défaut : ex : function addition(a = 0, b = 10) 
+
+Accéder aux éléments : getElementById, querySelector, querySelectorAll
+
+Gestion des fenêtres et boîtes de dialogues : prompt, alert, confirm
+
+Parcourir un tableau : forEach = for of
+
+Les fonctions find() et findIndex()
+
+
+
+Les objets littéraux ex : 
+let tab2 = {
+    "message" : "https://images.dog.ceo/breeds/terrier-irish/n02093991_287.jpg",
+    "status" : "success"
+}
+
+Ajouter & accéder aux propriétés des tableau :ex : ici tab2.message et on peut en ajouter aussi ex : tab2.date=2021 va crée une propriété date 
+
+
+Les fonctions fléchées : eviter de reecrire ()=>{} 
+
+Les fonctions preventDefault() : eviter le comportement par default d'un evenement 
+
+
+Modifier le contenu d'une balises : innerHTML, innerText, innerContent
+
+Parcourir l'arbre DOM : parentNode, childNode
+Créer et insérer une balise : createElement, appendChild
+
+fonction NextSibling : récuperer l'element suivant
+fonction PreviousSibling : récuperer l'element précedent
+
+Supprimer une balise : removeChild
+
